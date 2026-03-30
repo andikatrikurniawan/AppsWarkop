@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class TextJudul extends StatelessWidget {
   const TextJudul({
@@ -10,43 +11,59 @@ class TextJudul extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile = screenWidth < 600;
+
     return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
-      
       children: [
-      Text("Hallo Andika",
-      overflow: TextOverflow.ellipsis,
-      maxLines: 2,
-      style: TextStyle(
-        fontSize: screenWidth < 600 ? 18 : 20,
-        fontFamily: "Times New Roman",
-        fontWeight: FontWeight.bold,
-       ),
-      ),
-      Text("Selamat Datang Di Warung Kopi",
-      overflow: TextOverflow.ellipsis,
-      maxLines: 2,
-      style: TextStyle(
-        fontSize: screenWidth < 600 ? 12 : 14,
-        fontFamily: "Times New Roman",
-        fontWeight: FontWeight.bold,
-       ),
-      ),
-      SizedBox(height: 30),
-      ElevatedButton.icon(
-        onPressed: () {
-    
-        },
-        label: Text("Order", style: TextStyle(
-        fontSize: 14,
-        fontFamily: "Times New Roman",
-        fontWeight: FontWeight.bold,
+        AnimatedTextKit(
+          totalRepeatCount: 1,
+          animatedTexts: [
+            TyperAnimatedText(
+              'Hallo, Andika',
+              textStyle: TextStyle(
+                fontSize: isMobile ? 16 : 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              speed: const Duration(milliseconds: 80),
+            ),
+          ],
         ),
+
+        const SizedBox(height: 2),
+
+        Text(
+          'Ngopi santai yuk ☕',
+          style: TextStyle(
+            fontSize: isMobile ? 12 : 14,
+            color: Colors.black87,
+          ),
         ),
-        icon: Icon(Icons.shopping_cart_checkout),
-      ),
-     ],
+
+        const SizedBox(height: 10),
+
+        SizedBox(
+          height: 36,
+          child: ElevatedButton.icon(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text("Fitur belum tersedia")),
+              );
+            },
+            icon: const Icon(Icons.account_balance_wallet, size: 16),
+            label: const Text("Balance"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.orange.shade500,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

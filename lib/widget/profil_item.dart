@@ -1,44 +1,41 @@
 import 'package:flutter/material.dart';
 
 class ProfileItem extends StatelessWidget {
-  const ProfileItem({
-    super.key,
-  });
+  const ProfileItem({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width * 0.18;
+
     return Stack(
-      alignment: Alignment.center,
       children: [
         Container(
-          width: 80,
-          height: 80,
+          width: size,
+          height: size,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: AlignmentGeometry.topCenter,
-              end: AlignmentGeometry.bottomCenter,
               colors: [
-                Colors.red,
-                Colors.yellowAccent,
+                Colors.orange.shade400,
+                Colors.orange.shade200,
               ],
-              ),
-          borderRadius: BorderRadius.circular(40),
+            ),
+            borderRadius: BorderRadius.circular(size),
           ),
         ),
-        Container(
-          width: 70,
-          height: 70,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/paes.png"),
-              fit: BoxFit.cover
+
+        Positioned.fill(
+          child: Padding(
+            padding: const EdgeInsets.all(4),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(size),
+                border: Border.all(color: Colors.white, width: 2),
+                image: const DecorationImage(
+                  image: AssetImage("images/paes.png"),
+                  fit: BoxFit.contain,
+                ),
               ),
-            color: Colors.grey[400],
-            border: Border.all(
-              color: Colors.white,
-              width: 2,
             ),
-          borderRadius: BorderRadius.circular(35),
           ),
         ),
       ],

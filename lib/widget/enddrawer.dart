@@ -41,36 +41,71 @@ class DrwerWidget extends StatelessWidget {
                     leading: Icon(Icons.arrow_left),
                     title: Text("Home"),
                     trailing: Icon(Icons.home),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Fitur belum tersedia")),
+                      );
+                    },
                   ),
                    ListTile(
                     leading: Icon(Icons.arrow_left),
                     title: Text("Product"),
                     trailing: Icon(Icons.shopping_cart),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Fitur belum tersedia")),
+                      );
+                    },
                   ),
                    ListTile(
                     leading: Icon(Icons.arrow_left),
                     title: Text("Penjualan"),
                     trailing: Icon(Icons.point_of_sale_sharp),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Fitur belum tersedia")),
+                      );
+                    },
                   ),
                    ListTile(
                     leading: Icon(Icons.arrow_left),
                     title: Text("Toko"),
                     trailing: Icon(Icons.store),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Fitur belum tersedia")),
+                      );
+                    },
                   ),
                    ListTile(
                     leading: Icon(Icons.arrow_left),
                     title: Text("Pembayaran"),
                     trailing: Icon(Icons.payment),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Fitur belum tersedia")),
+                      );
+                    },
                   ),
                    ListTile(
                     leading: Icon(Icons.arrow_left),
                     title: Text("Barang"),
                     trailing: Icon(Icons.inventory_sharp),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Fitur belum tersedia")),
+                      );
+                    },
                   ),
                    ListTile(
                     leading: Icon(Icons.arrow_left),
                     title: Text("Kategori"),
                     trailing: Icon(Icons.category),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Fitur belum tersedia")),
+                      );
+                    },
                   ),
                 ],
               ),             

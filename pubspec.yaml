@@ -62,6 +62,7 @@ flutter:
   assets:
     - images/logo_warkop.png
     - images/logo_sepatu.png
+    - images/umkm.png
     - images/patung.png
     - images/paes.png
     - images/ole.png
@@ -69,7 +70,22 @@ flutter:
     - images/latte.jpg
     - images/americano.jpg
     - images/coffe_susu.jpg
-    - images/umkm.png  
+    - images/carabian_espresso.jpg
+    - images/chocolatos.jpg
+    - images/matcha.jpg
+    - images/matcha_latte.jpg
+    - images/gula_aren.jpg
+    - images/tehTarik.jpg
+    - images/crossaint.jpg
+    - images/pain_choco.jpg
+    - images/chicken.jpg
+    - images/burger.jpg
+    - images/cheesscake.jpg
+    - images/chococake.jpg
+    - images/kentang.jpg
+    - images/spageheti.jpg
+    - images/udang.jpg
+    - images/omelete.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

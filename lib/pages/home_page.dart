@@ -4,6 +4,7 @@ import '../widget/profil_item.dart';
 import '../widget/text_judul.dart';
 import '../widget/image_item.dart';
 import'../widget/grid_menu.dart';
+import '../widget/appbar_warkop.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,26 +14,8 @@ class HomePage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
-        leading: Padding(
-          padding: const EdgeInsets.all(6),
-          child: Image.asset(
-            'images/logo_warkop.png',
-            fit: BoxFit.contain,
-          ),
-        ),
-        title: Text(
-          "Warung Kopi",
-          style: TextStyle(
-            color: Colors.orange.shade400,
-          ),
-        ),
-      ),
-
+      appBar: AppbarWarkop(title: "Warung Dayat"),
       endDrawer: const DrwerWidget(),
-
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(10),
@@ -78,7 +61,7 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             // GRID MENU COFFER
-            GridMenu(),
+            GridMinuman(),
             SizedBox(height: 25),
             // JUDUL MENU COFFE
             Padding(
@@ -93,7 +76,7 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             // GRID MENU COFFER
-            GridMenu(),
+            GridMakanan(),
           ],
         ),
       ),

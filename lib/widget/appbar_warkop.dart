@@ -1,9 +1,11 @@
+import '../pages/started.dart';
 import 'package:flutter/material.dart';
 
 class AppbarWarkop extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final bool showBackButton;
 
-  const AppbarWarkop({super.key, required this.title});
+  const AppbarWarkop({super.key, required this.title, this.showBackButton = false});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class AppbarWarkop extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       iconTheme: const IconThemeData(color: Colors.black),
       automaticallyImplyLeading: Navigator.canPop(context),
-      leading: Navigator.canPop(context)
+      leading: showBackButton
           ? IconButton(
               icon: const Icon(Icons.arrow_back, color: Colors.black),
               onPressed: () => Navigator.pop(context),
@@ -27,11 +29,14 @@ class AppbarWarkop extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text("Fitur belum tersedia")),
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Starded(),
+              ),
             );
           },
-          icon: const Icon(Icons.notifications_on_rounded, color: Colors.orange,),
+          icon: const Icon(Icons.logout_outlined, color: Colors.orange,),
         )
       ],
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './pages/home_page.dart';
+import 'pages/started.dart';
 
 void main (){
   runApp(AppsWarkop());
@@ -12,7 +12,7 @@ class AppsWarkop extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Starded(),
     );
   }
 }

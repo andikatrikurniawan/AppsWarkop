@@ -17,7 +17,7 @@ class TextJudul extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AnimatedTextKit(
-          totalRepeatCount: 1,
+          totalRepeatCount: 10,
           animatedTexts: [
             TyperAnimatedText(
               'Hallo, Andika',

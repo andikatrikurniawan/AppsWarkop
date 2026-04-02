@@ -21,7 +21,7 @@ class _OrderPageState extends State<OrderPage> {
     final total = widget.menu.price * qty;
 
     return Scaffold(
-      appBar: AppbarWarkop(title: widget.menu.name),
+      appBar: AppbarWarkop(title: widget.menu.name, showBackButton: true),
 
       body: SafeArea(
         child: Padding(

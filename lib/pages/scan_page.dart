@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import '../widget/appbar_warkop.dart';
 
 class ScanPage extends StatelessWidget {
   const ScanPage({super.key});
@@ -7,7 +8,10 @@ class ScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Scan QR / Barcode",)),
+      appBar: AppbarWarkop(
+        title: "Scan QR / Barcode",
+        showBackButton: true,
+      ),
       body: MobileScanner(
                 onDetect: (BarcodeCapture capture) {
                 final List<Barcode> barcodes = capture.barcodes;

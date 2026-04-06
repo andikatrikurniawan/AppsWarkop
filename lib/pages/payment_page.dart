@@ -1,48 +1,20 @@
+import 'package:apps_warkop/pages/scan_page.dart';
+import '../widget/bottombar.dart';
 import 'package:flutter/material.dart';
-import '../models/model_menu.dart';
+import '../models/cart_model.dart';
 import '../widget/appbar_warkop.dart';
 
 class PaymentPage extends StatelessWidget {
-  final MenuModel menu;
-  final int qty;
+  final List<CartModel> items;
   final int total;
 
   const PaymentPage({
     super.key,
-    required this.menu,
-    required this.qty,
+    required this.items,
     required this.total,
   });
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppbarWarkop(title: "Pembayaran", showBackButton: true),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Text(menu.name),
-            Text("Jumlah: $qty"),
-            Text("Total: Rp $total"),
-
-            const SizedBox(height: 20),
-
-            ListTile(
-              title: const Text("Cash"),
-              onTap: () => success(context),
-            ),
-            ListTile(
-              title: const Text("QRIS"),
-              onTap: () => success(context),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void success(BuildContext context) {
+  void _showSuccess(BuildContext context) {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
@@ -51,13 +23,82 @@ class PaymentPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.pop(context);
-              Navigator.pop(context);
-              Navigator.pop(context);
+             Navigator.pushAndRemoveUntil(
+             context,
+             MaterialPageRoute(builder: (context) => Bottombar()),
+             (route) => true,
+              );
             },
             child: const Text("OK"),
           )
         ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const AppbarWarkop(
+        title: "Pembayaran",
+        showBackButton: true,
+      ),
+
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+
+            /// LIST ITEM
+            Expanded(
+              child: ListView(
+                children: items.map((item) {
+                  return ListTile(
+                    title: Text(item.menu.name),
+                    subtitle: Text("x${item.qty}"),
+                    trailing: Text("Rp ${item.totalPrice}"),
+                  );
+                }).toList(),
+              ),
+            ),
+
+            /// TOTAL
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text("Total"),
+                Text(
+                  "Rp $total",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 20),
+
+            /// METODE PEMBAYARAN
+            ListTile(
+              leading: const Icon(Icons.payments),
+              title: const Text("Cash"),
+              onTap: () => _showSuccess(context),
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.qr_code),
+              title: const Text("QRIS"),
+              onTap: () {
+                 Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => ScanPage()),
+                  (route) => true,
+                );
+              }
+            ),
+          ],
+        ),
       ),
     );
   }

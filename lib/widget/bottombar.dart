@@ -1,6 +1,7 @@
 import 'package:apps_warkop/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import '../pages/cart_page.dart';
 import '../pages/scan_page.dart';
 
 class Bottombar extends StatefulWidget {
@@ -15,7 +16,7 @@ class _BottombarState extends State<Bottombar> {
 
   final List<Widget> pages = [
     HomePage(),
-    Center(child: Text("Cart Page")),
+    CartPage(),
     Center(child: Text("Profile Page")),
     Center(child: Text("Settings Page")),
   ];

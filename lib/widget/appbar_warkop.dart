@@ -28,16 +28,44 @@ class AppbarWarkop extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
+            icon: const Icon(Icons.notifications_active, color: Colors.orange),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text("Fitur belum tersedia")),
+              );
+            },
+          ),
+        IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Starded(),
-              ),
-            );
+            showDialog(
+              context: context, 
+              builder: (context) {
+                return AlertDialog(
+                  title: const Text("Logout"),
+                  content: const Text("Apakah Anda yakin ingin logout?"),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text("Batal"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => Starded()),
+                          (route) => false,
+                        );
+                      },
+                      child: const Text("Logout"),
+                    ),
+                  ],
+                );
+              },
+              );
           },
           icon: const Icon(Icons.logout_outlined, color: Colors.orange,),
         )
+
       ],
     );
   }

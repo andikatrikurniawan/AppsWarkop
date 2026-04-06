@@ -18,7 +18,7 @@ class MenuMakanan extends StatelessWidget {
           BoxShadow(
             blurRadius: 8,
             color: Colors.amber.shade300,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -29,7 +29,7 @@ class MenuMakanan extends StatelessWidget {
           // IMAGE
           Expanded(
             child: ClipRRect(
-              borderRadius: const BorderRadius.vertical(
+              borderRadius:BorderRadius.vertical(
                 top: Radius.circular(20),
               ),
               child: Image.asset(
@@ -41,18 +41,18 @@ class MenuMakanan extends StatelessWidget {
           ),
           // TEXT
           Padding(
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   menu.name,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 13,
                   ),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4),
                 Text(
                   "Rp.${menu.price}",
                   style: TextStyle(
@@ -60,7 +60,7 @@ class MenuMakanan extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: 5),
                 ElevatedButton.icon(
                   onPressed: () {
                         Navigator.push(
@@ -70,15 +70,15 @@ class MenuMakanan extends StatelessWidget {
                           ),
                         );
                       },
-                  label: const Text("Order"),
-                  icon: const Icon(Icons.shopping_cart_checkout, size: 16),
+                  label: Text("Order"),
+                  icon: Icon(Icons.shopping_cart_checkout, size: 16),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange.shade400,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    padding:EdgeInsets.symmetric(horizontal: 12),
                   ),
                 ),
               ],

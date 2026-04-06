@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pages/started.dart';
+import 'package:provider/provider.dart';
+import 'providers/cart_provider.dart';
 
 void main (){
   runApp(AppsWarkop());
@@ -10,9 +12,16 @@ class AppsWarkop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Starded(),
+    return  MultiProvider(
+       providers: [
+        ChangeNotifierProvider(
+          create: (_) => CartProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Starded(),
+      ),
     );
   }
 }

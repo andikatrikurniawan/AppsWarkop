@@ -10,7 +10,7 @@ class MenuModel {
   });
 }
 
-List<MenuModel> menuListMakanan = [
+List<MenuModel> menuMakanan = [
   MenuModel(name: "Croissant", price: 28000, image: "images/crossaint.jpg"),
   MenuModel(name: "Pain au Chocolate", price: 29000, image: "images/pain_choco.jpg"),
   MenuModel(name: "Chicken Sandwich", price: 30000, image: "images/chicken.jpg"),
@@ -23,7 +23,7 @@ List<MenuModel> menuListMakanan = [
   MenuModel(name: "Scrambled Egg", price: 20000, image: "images/omelete.jpg"),
 ];
 
-List<MenuModel> menuListMinuman = [
+List<MenuModel> menuMinuman = [
   MenuModel(name: "Cappuccino", price: 18000, image: "images/capucino.jpg"),
   MenuModel(name: "Latte", price: 20000, image: "images/latte.jpg"),
   MenuModel(name: "Americano", price: 17000, image: "images/americano.jpg"),
